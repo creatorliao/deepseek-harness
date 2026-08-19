@@ -1,0 +1,6 @@
+---
+description: 个人文档只写 dev-docs，按 PARA 四层与命名规格落盘
+alwaysApply: true
+---
+
+个人文档、需求、方案、决策、调查不写官方 `docs/`。规格只进 `dev-docs/02-Areas/`。技术规范文件名 `SP{NN}-{主题}`，不含日期。需求与方案进同一主题夹，夹内扁平。调查与外部参考进 `dev-docs/03-Resources/`。存储规则：[README](../../dev-docs/README.md)。全文规格：[SP01](../../dev-docs/02-Areas/SP01-dev-docs目录命名与Git.md)。

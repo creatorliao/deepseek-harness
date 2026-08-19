@@ -1,0 +1,9 @@
+---
+description: 打开枢纽文件时以上游逻辑为底，只加或改挂钩
+globs:
+  - AGENTS.md
+  - scripts/check-workspace-constraints.ts
+alwaysApply: false
+---
+
+这些文件是枢纽。以上游（或官方）最终正文为底，只加/改本仓挂钩或中文短节。禁止为过编译整文件取上游或本仓。活表：[20260820-04](../../dev-docs/02-Areas/20260820-04-参考_叠加层L2枢纽L3清单.md)。

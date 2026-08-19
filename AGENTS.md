@@ -2,6 +2,18 @@
 
 DeepSeek Harness is a plugin-based agent harness on vendored Cordis: **everything is a plugin**. Read [docs/architecture.md](docs/architecture.md) before changing `packages/`; follow [docs/AGENTS.md](docs/AGENTS.md) for documentation.
 
+## 创作者叠加（`dev-creator`）
+
+本工作区是官方仓上的长期叠加层。创作者改动只落 `dev-creator`。未经明确要求，不往 `master`/`main` 或官方 PR 提交。
+
+新能力先落本仓独有路径（`packages/creator/**`、自有 patch、`dev-docs/**`）。能插插件或 `cordis.patch.yml` 行就不改官方包。必须改官方入口时只加具名挂钩。禁止先改 `agent-loop` 图快。
+
+文档只写 [dev-docs/](dev-docs/README.md)。技术规范进 [02-Areas](dev-docs/02-Areas/SP01-dev-docs目录命名与Git.md)，文件名 `SP{NN}-{主题}`、不含日期；需求与方案进同一主题夹且夹内扁平；调查与外部参考进 [03-Resources](dev-docs/03-Resources/)。技能若写「写到 `docs/`」一律改写到 `dev-docs/`。先归档提问原话、需求、方案、决策要点，再编码或合上游。本仓写入本文的段落用中文，不英译；官方英文保持英文。
+
+同步用 `merge upstream/master`，禁止 cherry-pick 冒充对齐。枢纽文件禁止整文件 `--theirs`/`--ours`。L3 默认未经你改口不改成上游默认。双会话禁止 `git add -A`。
+
+加个性化走 [overlay-feature-isolate](.agents/skills/overlay-feature-isolate/SKILL.md)；合上游走 [overlay-upstream-sync](.agents/skills/overlay-upstream-sync/SKILL.md)。原则见 [20260820-03](dev-docs/02-Areas/20260820-03-最佳实践_上游叠加与个性化隔离.md)；路径表见 [20260820-04](dev-docs/02-Areas/20260820-04-参考_叠加层L2枢纽L3清单.md)。
+
 ## Pre-release stance: foundation over blast radius
 
 **Remove this section at the first tagged release.** With no external consumers, prefer the correct foundation over compatibility shims: rename or repackage freely and update every reference together. Backends reject old on-disk formats. SQLite uses monotonic `SCHEMA_VERSION`; `dsh-session` keeps `SESSION_FORMAT_VERSION` at `0` with no compatibility promise.
@@ -50,7 +62,8 @@ python/      Python SDK and bundled runtime (see python/README.md)
 native/      @deepseek-ai/node-addon-landlock-run source of record (see native/README.md)
 examples/    Runnable cordis.yml leaves over packages/examples bundles (see examples/AGENTS.md)
 .agents/     Agent workflows and Agent Notes (`notes/`)
-docs/        architecture, generated catalogs, postmortems, cookbook (see docs/AGENTS.md)
+docs/        official architecture, generated catalogs, postmortems, cookbook (see docs/AGENTS.md)
+dev-docs/    创作者 PARA（规格/主题/调查）；不是官方 docs/ 的替代（见「创作者叠加」）
 scripts/     repo gates and generators
 website/     VitePress projection of selected bilingual docs/ sources
 ```
