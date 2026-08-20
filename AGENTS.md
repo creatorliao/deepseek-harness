@@ -10,9 +10,11 @@ DeepSeek Harness is a plugin-based agent harness on vendored Cordis: **everythin
 
 文档只写 [dev-docs/](dev-docs/README.md)。技术规范进 [02-Areas](dev-docs/02-Areas/SP01-dev-docs目录命名与Git.md)，文件名 `SP{NN}-{主题}`、不含日期；需求与方案进同一主题夹且夹内扁平；调查与外部参考进 [03-Resources](dev-docs/03-Resources/)。技能若写「写到 `docs/`」一律改写到 `dev-docs/`。先归档提问原话、需求、方案、决策要点，再编码或合上游。本仓写入本文的段落用中文，不英译；官方英文保持英文。
 
+学习与教程只进 [R20260820-02-学习教程](dev-docs/01-Projects/R20260820-02-学习教程/00-README.md)（夹号不变；曾用名「初学者学习教程」已作废）。无论从 Cursor、Pi 还是其它智能体提问，课文、原话、问答都只进该夹，不写到家目录技能树或各客户端笔记。新课用 `教程_`，问答用 `问答_`；改 [00-README](dev-docs/01-Projects/R20260820-02-学习教程/00-README.md) 课程表。不写官方 `docs/`，不平行再建第二学堂夹。当前主线是网页入口；命令行列后学。写教程、学堂课走 [deepseek-harness-learner](.agents/skills/deepseek-harness-learner/SKILL.md)。要把本仓网页跑起来走 [dsh-web-run](.agents/skills/dsh-web-run/SKILL.md)（只跑 `packages/creator/dsh-web.sh`）。本仓自有技能的创建与**以后更新**都只改 `{工作区}/.agents/skills/<name>/` 这一份，让 Cursor 与 Pi 共读；细则见 [20260820-06](dev-docs/02-Areas/20260820-06-最佳实践_工作区技能双智能体共读.md)。
+
 同步用 `merge upstream/master`，禁止 cherry-pick 冒充对齐。枢纽文件禁止整文件 `--theirs`/`--ours`。L3 默认未经你改口不改成上游默认。双会话禁止 `git add -A`。
 
-加个性化走 [overlay-feature-isolate](.agents/skills/overlay-feature-isolate/SKILL.md)；合上游走 [overlay-upstream-sync](.agents/skills/overlay-upstream-sync/SKILL.md)。原则见 [20260820-03](dev-docs/02-Areas/20260820-03-最佳实践_上游叠加与个性化隔离.md)；路径表见 [20260820-04](dev-docs/02-Areas/20260820-04-参考_叠加层L2枢纽L3清单.md)。
+加个性化走 [overlay-feature-isolate](.agents/skills/overlay-feature-isolate/SKILL.md)；合上游走 [overlay-upstream-sync](.agents/skills/overlay-upstream-sync/SKILL.md)。原则见 [20260820-03](dev-docs/02-Areas/20260820-03-最佳实践_上游叠加与个性化隔离.md)；路径表见 [20260820-04](dev-docs/02-Areas/20260820-04-参考_叠加层L2枢纽L3清单.md)。重建本机环境默认走目标 A（`pnpm install` + `pnpm dsh --help`），细则见 [20260820-05](dev-docs/02-Areas/20260820-05-最佳实践_本地环境构建效率.md)；未经点名不跑 `typecheck` / `build`。
 
 ## Pre-release stance: foundation over blast radius
 
